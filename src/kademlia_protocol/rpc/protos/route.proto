@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+service Router{
+  rpc TestRouter (TestRequest) returns (TestResponse) {}
+  rpc FindNode (FindRequest) returns (stream FindNodeResponse) {}
+  rpc FindValue (FindRequest) returns (FindValueResponse) {}
+  rpc Store (StoreRequest) returns (StoreResponse) {}
+  rpc Ping (PingRequest) returns (PingResponse) {}
+  rpc Lookup (LookupRequest) returns (stream LookupResponse) {}
+}
+
+message LookupRequest{
+  int32 id = 1;
+}
+
+message LookupResponse{
+  string ip_address = 1;
+  int32 udp_port = 2;
+  int32 node_id = 3;
+}
+
+message TestRequest {
+  string name = 1;
+}
+
+message TestResponse {
+  string message = 1;
+}
+
+message FindRequest {
+  string id = 1;
+}
+
+// could be updated to respond with k closest nodes instead of just one
+message FindNodeResponse{
+  string ip_address = 1;
+  int32 udp_port = 2;
+  int32 node_id = 3;  
+}
+
+message FindValueResponse{
+//  FindNodeResponse find_node_res = 1;
+//  string value = 2;
+    string value = 1;
+}
+
+message StoreRequest{
+  string key = 1;
+  string value = 2;
+}
+
+message StoreResponse{
+  bool is_stored = 1;
+}
+
+// needs to be defined
+message PingRequest{
+
+}
+
+// needs to be defined
+message PingResponse{
+
+}
