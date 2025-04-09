@@ -5,8 +5,7 @@ import socket
 import grpc
 
 import util
-from Distributed_Storage_System.test import node
-from kademlia.rpc import route_pb2_grpc, route_pb2
+from src.kademlia_protocol.rpc import route_pb2_grpc, route_pb2
 from node import Node
 from protocol import Protocol
 from routing_table import routing_table

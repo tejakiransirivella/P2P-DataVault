@@ -2,8 +2,8 @@ import grpc
 import route_pb2
 import route_pb2_grpc
 from concurrent import futures
-from Distributed_Storage_System.protocol import Protocol
-from Distributed_Storage_System.kademlia_protocol import initiate_startup
+from src.storage_system.protocol import Protocol
+from src.storage_system.kademlia_protocol import initiate_startup
 
 
 class RouterService(route_pb2_grpc.RouterServicer):
